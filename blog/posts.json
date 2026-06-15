@@ -13,6 +13,20 @@
       "date": "02-04-2026",
       "url": "blog/storie-che-raccontiamo.html",
       "color": "pesca"
+    },
+    {
+      "title": "Chiedere aiuto non è una debolezza",
+      "category": "Benessere",
+      "date": "11-03-2026",
+      "url": "blog/chiedere-aiuto.html",
+      "color": "salvia"
+    },
+    {
+      "title": "Hai paura del buio?",
+      "category": "Benessere",
+      "date": "06-06-2026",
+      "url": "blog/chiedere-aiuto.html",
+      "color": "burro"
     }
   ]
 }
