@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lara Pennetta - Psicologa e Psicoterapeuta FSP</title>
+<title>Lara Pennetta — Psicologa e Psicoterapeuta FSP</title>
 <meta name="description" content="Lara Pennetta, psicologa e psicoterapeuta FSP ad orientamento sistemico e socio-costruzionista. Percorsi individuali, di coppia e familiari.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,8 +40,9 @@ a{color:inherit;text-decoration:none}
 .site-header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .4s,box-shadow .4s,padding .4s;padding-block:1.4rem;border-bottom:2px solid transparent}
 .site-header.scrolled{background:var(--crema);border-bottom-color:var(--inchiostro);padding-block:.9rem}
 .nav{display:flex;align-items:center;justify-content:space-between}
-.brand{font-family:var(--display);font-size:1.4rem;font-weight:700}
-.brand span{display:block;font-family:var(--body);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--grigio);margin-top:.15rem}
+.brand{font-family:var(--display);font-size:1.1rem;font-weight:700;line-height:1.15;display:inline-block}
+.brand .bn{white-space:nowrap}
+.brand span:not(.bn){display:block;font-family:var(--body);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--grigio);margin-top:.15rem}
 .nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
 .nav-links a{font-size:.95rem;font-weight:600;position:relative;white-space:nowrap}
 .nav-links a:not(.nav-cta){padding:.4rem .9rem;border-radius:999px;transition:background .25s,color .25s}
@@ -54,6 +55,8 @@ a{color:inherit;text-decoration:none}
   .nav-toggle{display:block}
   .nav-links{position:fixed;inset:0 0 0 auto;width:min(80vw,340px);background:var(--corallo);flex-direction:column;justify-content:center;align-items:flex-start;gap:.4rem;padding:var(--gutter);transform:translateX(100%);transition:transform .45s cubic-bezier(.22,1,.36,1);border-left:3px solid var(--inchiostro)}
   .nav-links.open{transform:translateX(0)}
+  .nav-overlay{position:fixed;inset:0;background:rgba(36,26,23,.45);opacity:0;pointer-events:none;transition:opacity .35s;z-index:90}
+  .nav-overlay.show{opacity:1;pointer-events:auto}
   .nav-links a{font-family:var(--display);font-size:1.7rem}
   .nav-links a::after{display:none}
   .nav-cta{background:var(--burro)}
@@ -77,14 +80,16 @@ a{color:inherit;text-decoration:none}
 /* ---- Hero ---- */
 #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:7rem;position:relative;overflow:hidden}
 #hero .wrap{position:relative;z-index:2;flex:1;display:flex;align-items:center}
-.hero-title{margin-bottom:2rem;font-size:7.4vw}
+.hero-title{margin-bottom:1rem;font-size:clamp(2rem,5.4vw,5rem);font-style:italic}
+.hero-cite{font-family:var(--display);font-size:clamp(1rem,1.8vw,1.4rem);font-weight:600;color:var(--corallo-scuro);letter-spacing:.02em;margin-bottom:2rem}
 .hero-title .l{display:block;overflow:hidden;padding-bottom:.14em}
 .hero-title .l>span{display:block;transform:translateY(105%);transition:transform 1s cubic-bezier(.22,1,.36,1)}
 #hero.in .hero-title .l>span{transform:none}
 #hero.in .hero-title .l:nth-child(2)>span{transition-delay:.1s}
 #hero.in .hero-title .l:nth-child(3)>span{transition-delay:.2s}
+#hero.in .hero-title .l:nth-child(4)>span{transition-delay:.3s}
+#hero.in .hero-title .l:nth-child(5)>span{transition-delay:.4s}
 .hero-title .pop{color:var(--corallo-scuro)}
-.hero-italic .l>span{font-style:italic}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem}
 .btn{font-family:var(--body);font-weight:700;font-size:1rem;padding:1rem 1.8rem;border:2px solid var(--inchiostro);border-radius:999px;background:var(--inchiostro);color:var(--crema);cursor:pointer;transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:.5rem}
 .btn:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--corallo)}
@@ -113,6 +118,7 @@ a{color:inherit;text-decoration:none}
 /* ---- Blocchi colore ---- */
 .block{border-block:2px solid var(--inchiostro)}
 .block--burro{background:var(--burro)}
+#ambiti{min-height:100vh;display:flex;flex-direction:column;justify-content:center}
 .block--pesca{background:var(--pesca)}
 .block--salvia{background:var(--salvia)}
 .block--rosa{background:var(--rosa)}
@@ -120,9 +126,9 @@ a{color:inherit;text-decoration:none}
 .block--ink .eyebrow{border-color:var(--crema)}
 
 /* ---- Numeri / card approccio ---- */
-.bigrow{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:2px solid var(--inchiostro);border-radius:20px;overflow:hidden;background:var(--carta)}
+.bigrow{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:20px;overflow:hidden;background:var(--inchiostro)}
 @media(max-width:760px){.bigrow{grid-template-columns:1fr}}
-.bigrow .cell{padding:2.5rem;border-right:2px solid var(--inchiostro);border-bottom:2px solid var(--inchiostro);transition:background .3s,opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.bigrow .cell{padding:2.5rem;background:var(--carta);transition:background .3s,opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 #approccio .bigrow .cell{opacity:0;transform:translateY(26px) scale(.97)}
 #approccio.in-view .bigrow .cell{opacity:1;transform:none}
 #approccio.in-view .bigrow .cell:nth-child(1){transition-delay:.15s}
@@ -263,7 +269,7 @@ a{color:inherit;text-decoration:none}
 
 <header class="site-header" id="header">
   <nav class="nav wrap" aria-label="Navigazione principale">
-    <a href="#hero" class="brand">Lara Pennetta<span>Psicologa · Psicoterapeuta FSP</span></a>
+    <a href="#hero" class="brand"><span class="bn">Studio di Psicoterapia Primo Passo</span><br>di Lara Pennetta<span>Psicologa · Psicoterapeuta FSP</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
     <ul class="nav-links" id="menu">
       <li><a href="#chi-sono">Chi sono</a></li>
@@ -299,20 +305,18 @@ a{color:inherit;text-decoration:none}
     </div>
     <div class="wrap">
       <div class="hero-grid">
-        <span class="eyebrow">Sistemico · Socio-costruzionista</span>
-        <h1 class="hero-title hero-italic">
-          <span class="l"><span>Non è quello che</span></span>
-          <span class="l"><span>ti succede, ma come</span></span>
-          <span class="l"><span style="white-space:nowrap"><span class="pop">reagisci</span> che conta.</span></span>
+        <span class="eyebrow">Approccio Sistemico e Socio-costruzionista</span>
+        <h1 class="hero-title">
+          <span class="l"><span>"Il vero viaggio di scoperta</span></span>
+          <span class="l"><span>non consiste</span></span>
+          <span class="l"><span>nel cercare nuove terre,</span></span>
+          <span class="l"><span style="white-space:nowrap">ma nell'avere nuovi occhi"</span></span>
         </h1>
-        <p class="lead">Sono Lara Pennetta, psicologa e psicoterapeuta FSP. Aiuto persone, coppie e famiglie a guardare i propri legami da nuovi punti di vista.</p>
-        <div class="hero-actions">
-          <a href="#contatti" class="btn">Prenota un colloquio →</a>
-          <a href="#approccio" class="btn btn--out">Come lavoro</a>
-        </div>
+        <p class="hero-cite">— Marcel Proust</p>
+        <p class="lead">Sono Lara Pennetta, psicologa e psicoterapeuta FSP.<br>Aiuto bambini, adolescenti, giovani adulti, adulti e famiglie ad intraprendere un viaggio di scoperta personale per individuare e risolvere disagi, difficoltà e conflitti.</p>
       </div>
     </div>
-    <div class="marquee-strip" aria-hidden="true"><div class="marquee"><div class="track"><span>Ascolto</span>✳<span>Relazioni</span>✳<span>Nuovi punti di vista</span>✳<span>Cura</span>✳<span>Ascolto</span>✳<span>Relazioni</span>✳<span>Nuovi punti di vista</span>✳<span>Cura</span>✳</div><div class="track"><span>Ascolto</span>✳<span>Relazioni</span>✳<span>Nuovi punti di vista</span>✳<span>Cura</span>✳<span>Ascolto</span>✳<span>Relazioni</span>✳<span>Nuovi punti di vista</span>✳<span>Cura</span>✳</div></div></div>
+    <div class="marquee-strip" aria-hidden="true"><div class="marquee"><div class="track"><span>Ricevo il Lunedì, Martedì e Mercoledì dalle ore 10.00 alle ore 18.00</span>✳<span>Ricevo il Lunedì, Martedì e Mercoledì dalle ore 10.00 alle ore 18.00</span>✳</div><div class="track"><span>Ricevo il Lunedì, Martedì e Mercoledì dalle ore 10.00 alle ore 18.00</span>✳<span>Ricevo il Lunedì, Martedì e Mercoledì dalle ore 10.00 alle ore 18.00</span>✳</div></div></div>
   </section>
 
   <!-- CHI SONO -->
@@ -320,10 +324,12 @@ a{color:inherit;text-decoration:none}
     <div class="wrap split">
       <div class="portrait reveal"><img src="img/lara_pennetta_white.png" alt="Lara Pennetta, psicologa e psicoterapeuta"><span class="tag">Chi sono</span></div>
       <div>
-        <h2 class="reveal" style="margin-bottom:1.5rem">Lara<br>Pennetta</h2>
-        <p class="reveal" data-d="1">Sono psicologa e psicoterapeuta FSP. Il mio orientamento è sistemico e socio-costruzionista: un modo di guardare al disagio che non isola l'individuo, ma lo osserva nella trama di relazioni in cui vive.</p>
-        <p class="reveal" data-d="1" style="margin-top:1.2rem">Accompagno adulti, adolescenti, coppie e famiglie in percorsi di sostegno e psicoterapia, in studio e online. <em>(Testo segnaposto: inviami la tua biografia e la inserisco.)</em></p>
-        <div class="hero-actions reveal" data-d="2"><a href="#contatti" class="btn btn--out">Scrivimi</a><a href="cv.html" class="btn">Curriculum completo →</a></div>
+        <h2 class="reveal" style="margin-bottom:1.5rem;font-size:clamp(2rem,4.5vw,3.4rem)">Lara<br>Pennetta</h2>
+        <p class="reveal" data-d="1">Sono psicologa specialista in psicoterapia FSP e accompagno bambini, adolescenti, adulti e famiglie in percorsi di sostegno psicologico e psicoterapia.</p>
+        <p class="reveal" data-d="1" style="margin-top:1.2rem">Accoglienza, empatia e ascolto mi guidano da anni nel mio lavoro con le persone.</p>
+        <p class="reveal" data-d="1" style="margin-top:1.2rem">Il mio approccio è sistemico e socio-costruzionista: considero la persona nella sua unicità e nel contesto delle relazioni, delle esperienze e degli ambienti di vita che contribuiscono al suo benessere.</p>
+        <p class="reveal" data-d="1" style="margin-top:1.2rem">Il mio obiettivo è offrire uno spazio di ascolto e di cura accogliente, nel quale comprendere insieme le difficoltà e costruire un percorso personalizzato, rispettoso dei bisogni e delle risorse di ogni persona.</p>
+        <div class="hero-actions reveal" data-d="2"><a href="cv.html" class="btn">Curriculum completo →</a></div>
       </div>
     </div>
   </section>
@@ -334,10 +340,9 @@ a{color:inherit;text-decoration:none}
       <span class="eyebrow reveal">Come lavoro</span>
       <h2 class="reveal" data-d="1" style="margin-bottom:2.5rem;max-width:18ch">L'approccio sistemico e socio-costruzionista</h2>
       <div class="bigrow reveal" data-d="1" style="color:var(--inchiostro)">
-        <div class="cell"><span class="n">01</span><h3>Lo sguardo sulle relazioni</h3><p>Difficoltà e comportamenti vengono letti dentro la rete di legami che dà loro senso, non come problemi isolati.</p></div>
-        <div class="cell"><span class="n">02</span><h3>Il qui e ora</h3><p>Il lavoro è orientato al presente e al cambiamento concreto, più che alla ricostruzione del passato.</p></div>
-        <div class="cell"><span class="n">03</span><h3>Nuovi punti di vista</h3><p>Un modello pratico ed esperienziale che apre la possibilità di osservarsi da angolazioni diverse.</p></div>
-        <div class="cell"><span class="n">04</span><h3>Più di una direzione</h3><p>Consente percorsi individuali, di coppia e familiari, secondo i bisogni portati.</p></div>
+        <div class="cell"><span class="n">01</span><h3>Lo sguardo sulle relazioni</h3><p>Gli interventi sistemici-relazionali si focalizzano sulle relazioni significative della persona.</p></div>
+        <div class="cell"><span class="n">02</span><h3>Nuovi punti di vista</h3><p>Un modello pratico ed esperienziale che favorisce la possibilità per la persona di esperire nuovi punti di vista.</p></div>
+        <div class="cell"><span class="n">03</span><h3>Più di una direzione</h3><p>L'approccio sistemico permette di intraprendere percorsi individuali, di coppia e famigliari a seconda delle problematiche e bisogni della persona.</p></div>
       </div>
     </div>
   </section>
@@ -348,9 +353,9 @@ a{color:inherit;text-decoration:none}
       <span class="eyebrow reveal">Di cosa mi occupo</span>
       <h2 class="reveal" data-d="1">Ambiti e percorsi</h2>
       <div class="modes reveal" data-d="1">
-        <div class="mode"><div class="ic">i</div><h3>Individuale</h3><p>Uno spazio personale per attraversare momenti difficili e ritrovare margini di scelta.</p></div>
-        <div class="mode"><div class="ic">ii</div><h3>Coppia</h3><p>Per riaprire un dialogo che si è inceppato o affrontare decisioni importanti.</p></div>
-        <div class="mode"><div class="ic">iii</div><h3>Famiglia</h3><p>Un lavoro che coinvolge il sistema familiare per leggere le difficoltà nel contesto.</p></div>
+        <div class="mode"><h3>Individuale</h3><p>Uno spazio personale per attraversare momenti difficili e ritrovare margini di scelta.</p></div>
+        <div class="mode"><h3>Coppia</h3><p>Per riaprire un dialogo che si è inceppato o affrontare decisioni importanti.</p></div>
+        <div class="mode"><h3>Famiglia</h3><p>Un lavoro che coinvolge il sistema familiare per leggere le difficoltà nel contesto.</p></div>
       </div>
       <h3 class="reveal" style="margin-top:3rem;margin-bottom:.5rem">Campi di competenza</h3>
       <div class="chips reveal" data-d="1">
@@ -410,7 +415,7 @@ a{color:inherit;text-decoration:none}
             <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l2 5v3a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></span><span><span class="k">Telefono</span><br><a class="v" href="tel:+410783114512">+41 (0)78 311 45 12</a></span></li>
             <li><span class="ic"><svg class="fill" viewBox="0 0 24 24"><path d="M4.98 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21h-4z"/></svg></span><span><span class="k">LinkedIn</span><br><a class="v" href="https://www.linkedin.com/in/lara-pennetta-02371a354/" target="_blank" rel="noopener">Profilo professionale</a></span></li>
             <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.4-3 8.3-7 9.5C8 22.3 5 18.4 5 14V6z"/><path d="M9.2 12.2l2 2 3.6-3.8"/></svg></span><span><span class="k">Profilo FSP</span><br><a class="v" href="https://www.psychologie.ch/it/psyfinder/lara-pennetta" target="_blank" rel="noopener">psychologie.ch</a></span></li>
-            <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><span class="k">Studio</span><br><span class="v">Piazza Molino Nuovo 17, Lugano</span></span></li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><span class="k">Studio</span><br><span class="v">Piazza Molino Nuovo 17, Lugano (5° Piano)</span></span></li>
           </ul>
         </div>
         <div class="reveal" data-d="2">
@@ -421,8 +426,8 @@ a{color:inherit;text-decoration:none}
         </div>
       </div>
       <div class="map-card map-full">
-        <iframe title="Mappa studio Lugano" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Piazza%20Molino%20Nuovo%2017,%206900%20Lugano&output=embed"></iframe>
-        <div class="foot"><span class="addr">Piazza Molino Nuovo 17, Lugano</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Piazza%20Molino%20Nuovo%2017%2C%206900%20Lugano" target="_blank" rel="noopener">Apri →</a></div>
+        <iframe title="Mappa studio Lugano" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=8.9505%2C46.0070%2C8.9605%2C46.0120&amp;layer=mapnik&amp;marker=46.0095%2C8.9555"></iframe>
+        <div class="foot"><span class="addr">Piazza Molino Nuovo 17, Lugano (5° Piano)</span><a href="https://www.openstreetmap.org/?mlat=46.0095&amp;mlon=8.9555#map=17/46.0095/8.9555" target="_blank" rel="noopener">Apri →</a></div>
       </div>
     </div>
   </section>
@@ -523,8 +528,13 @@ addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40),{pa
 requestAnimationFrame(()=>requestAnimationFrame(()=>document.getElementById('hero').classList.add('in')));
 // menu
 const t=document.querySelector('.nav-toggle'),l=document.getElementById('menu');
-t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.textContent=o?'Chiudi':'Menu';t.setAttribute('aria-expanded',o?'true':'false');});
-l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{l.classList.remove('open');t.textContent='Menu';}));
+const ov=document.createElement('div');ov.className='nav-overlay';document.body.appendChild(ov);
+function closeMenu(){l.classList.remove('open');ov.classList.remove('show');t.textContent='Menu';t.setAttribute('aria-expanded','false');}
+function openMenu(){l.classList.add('open');ov.classList.add('show');t.textContent='Chiudi';t.setAttribute('aria-expanded','true');}
+t.addEventListener('click',()=>{l.classList.contains('open')?closeMenu():openMenu();});
+ov.addEventListener('click',closeMenu);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&l.classList.contains('open'))closeMenu();});
+l.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 // reveal
 const els=document.querySelectorAll('.reveal');
 if(reduce||!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('in'));}

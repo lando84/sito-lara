@@ -17,7 +17,7 @@
 <body>
 <header class="site-header" id="header">
   <nav class="nav wrap" aria-label="Navigazione principale">
-    <a href="../index.html" class="brand">Lara Pennetta<span>Psicologa · Psicoterapeuta FSP</span></a>
+    <a href="../index.html" class="brand"><span class="bn">Studio di Psicoterapia Primo Passo</span><br>di Lara Pennetta<span>Psicologa · Psicoterapeuta FSP</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
     <ul class="nav-links" id="menu">
       <li><a href="../index.html#chi-sono">Chi sono</a></li>
@@ -86,7 +86,13 @@
 const header=document.getElementById('header');
 addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40),{passive:true});
 const t=document.querySelector('.nav-toggle'),l=document.getElementById('menu');
-t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.textContent=o?'Chiudi':'Menu';});
+const ov=document.createElement('div');ov.className='nav-overlay';document.body.appendChild(ov);
+function closeMenu(){l.classList.remove('open');ov.classList.remove('show');t.textContent='Menu';t.setAttribute('aria-expanded','false');}
+function openMenu(){l.classList.add('open');ov.classList.add('show');t.textContent='Chiudi';t.setAttribute('aria-expanded','true');}
+t.addEventListener('click',()=>{l.classList.contains('open')?closeMenu():openMenu();});
+ov.addEventListener('click',closeMenu);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&l.classList.contains('open'))closeMenu();});
+l.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 </script>
 </body>
 </html>

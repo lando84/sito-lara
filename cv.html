@@ -38,8 +38,9 @@ a{color:inherit;text-decoration:none}
 .site-header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .4s,box-shadow .4s,padding .4s;padding-block:1.4rem;border-bottom:2px solid transparent}
 .site-header.scrolled{background:var(--crema);border-bottom-color:var(--inchiostro);padding-block:.9rem}
 .nav{display:flex;align-items:center;justify-content:space-between}
-.brand{font-family:var(--display);font-size:1.4rem;font-weight:700;line-height:1.1}
-.brand span{display:block;font-family:var(--body);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--grigio);margin-top:.15rem}
+.brand{font-family:var(--display);font-size:1.1rem;font-weight:700;line-height:1.15;display:inline-block}
+.brand .bn{white-space:nowrap}
+.brand span:not(.bn){display:block;font-family:var(--body);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--grigio);margin-top:.15rem}
 .nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
 .nav-links a{font-size:.95rem;font-weight:600;position:relative;white-space:nowrap}
 .nav-links a:not(.nav-cta){padding:.4rem .9rem;border-radius:999px;transition:background .25s,color .25s}
@@ -51,6 +52,8 @@ a{color:inherit;text-decoration:none}
   .nav-toggle{display:block}
   .nav-links{position:fixed;inset:0 0 0 auto;width:min(80vw,340px);background:var(--corallo);flex-direction:column;justify-content:center;align-items:flex-start;gap:.4rem;padding:var(--gutter);transform:translateX(100%);transition:transform .45s cubic-bezier(.22,1,.36,1);border-left:3px solid var(--inchiostro)}
   .nav-links.open{transform:translateX(0)}
+  .nav-overlay{position:fixed;inset:0;background:rgba(36,26,23,.45);opacity:0;pointer-events:none;transition:opacity .35s;z-index:90}
+  .nav-overlay.show{opacity:1;pointer-events:auto}
   .nav-links a{font-family:var(--display);font-size:1.7rem}
 }
 
@@ -148,7 +151,7 @@ section[id]{scroll-margin-top:90px}
 
 <header class="site-header" id="header">
   <nav class="nav wrap" aria-label="Navigazione principale">
-    <a href="index.html#hero" class="brand">Lara Pennetta<span>Psicologa · Psicoterapeuta FSP</span></a>
+    <a href="index.html#hero" class="brand"><span class="bn">Studio di Psicoterapia Primo Passo</span><br>di Lara Pennetta<span>Psicologa · Psicoterapeuta FSP</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
     <ul class="nav-links" id="menu">
       <li><a href="index.html#chi-sono">Chi sono</a></li>
@@ -167,46 +170,46 @@ section[id]{scroll-margin-top:90px}
     <a href="index.html#chi-sono" class="back-link">← Torna al sito</a>
     <h1>Curriculum<br>Vitae</h1>
     <p class="role">Psicologa dello Sviluppo e della Comunicazione, specialista in Psicoterapia con approccio sistemico e socio-costruzionista, fondato sulla creazione di un ambiente di cura ricco di risorse utili alla definizione e alla risoluzione del problema.</p>
-    <div class="badges">
-      <span class="badge">Membro FSP</span>
-      <span class="badge">Membro ATP</span>
-      <span class="badge">EMDR I e II livello</span>
-      <span class="badge">Schema Therapy</span>
-      <span class="badge">Facilitatrice Mindfulness</span>
-    </div>
   </div>
 </section>
 
 <!-- NAV A PALLINI -->
 <nav class="dots" aria-label="Sezioni del curriculum">
   <button data-target="riconoscimenti" aria-label="Riconoscimenti"><span class="lbl">Riconoscimenti</span></button>
+  <button data-target="competenze" aria-label="Campi di competenza"><span class="lbl">Campi di competenza</span></button>
   <button data-target="formazione" aria-label="Formazione"><span class="lbl">Formazione</span></button>
   <button data-target="specialistiche" aria-label="Specializzazioni"><span class="lbl">Specializzazioni</span></button>
   <button data-target="esperienza" aria-label="Esperienza"><span class="lbl">Esperienza</span></button>
-  <button data-target="approccio" aria-label="Approccio"><span class="lbl">Approccio</span></button>
 </nav>
 
 <!-- QUALIFICHE / RICONOSCIMENTI -->
 <section id="riconoscimenti" class="section section--crema">
   <div class="wrap">
-    <span class="eyebrow">Qualcosa di me</span>
     <h2 class="shead">Riconoscimenti e abilitazioni</h2>
     <div class="prose">
       <p>Dal 2023 sono riconosciuta a livello federale come psicologa e psicoterapeuta, membro della Federazione Svizzera degli Psicologi (FSP) e dell'Associazione Ticinese Psicologi e Psicoterapeuti (ATP).</p>
-      <p>Svolgo la mia pratica clinica con bambini, adolescenti, giovani adulti, adulti e famiglie. Mi occupo del trattamento di problemi relazionali, pensieri negativi, emozioni e disturbi sensoriali, e di forme di disagio come ansia, stress, bassa autostima e depressione, oltre al sostegno alla genitorialità.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPI DI COMPETENZA -->
+<section id="competenze" class="section section--burro">
+  <div class="wrap">
+    <h2 class="shead">Campi di competenza</h2>
+    <div class="prose">
+      <p>Mi occupo di disturbi d'ansia, disturbi dell'umore, disturbi ossessivo-compulsivi, disturbi relazionali, disturbi nell'area affettiva, disturbi in ambito scolastico, sostegno alla genitorialità, situazioni di disagio in bambini e adolescenti, conflitti famigliari e di coppia, disturbi di origine psicosomatica, sofferenza connessa ad eventi critici e traumatici (lutti, separazioni, malattie).</p>
     </div>
   </div>
 </section>
 
 <!-- FORMAZIONE -->
-<section id="formazione" class="section section--burro">
+<section id="formazione" class="section section--crema">
   <div class="wrap">
-    <span class="eyebrow">Percorso accademico</span>
     <h2 class="shead">Formazione</h2>
     <div class="cards">
       <div class="card">
         <p class="year">2019</p>
-        <h3>Specializzazione in Psicoterapia Sistemica e Socio-Costruzionista</h3>
+        <h3>Specializzazione in Psicoterapia con approccio Sistemico e Socio-Costruzionista</h3>
         <p>Panta Rei, Milano</p>
       </div>
       <div class="card">
@@ -219,19 +222,13 @@ section[id]{scroll-margin-top:90px}
         <h3>Bachelor in Scienze e Tecniche Psicologiche</h3>
         <p>Università Cattolica del Sacro Cuore, Milano</p>
       </div>
-      <div class="card">
-        <p class="year">2023 · 2024</p>
-        <h3>Autorizzazioni cantonali al libero esercizio</h3>
-        <p>Professione di psicoterapeuta e psicologa, rilasciate dall'Ufficio di Sanità di Bellinzona</p>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- FORMAZIONI SPECIALISTICHE -->
-<section id="specialistiche" class="section section--crema">
+<section id="specialistiche" class="section section--burro">
   <div class="wrap">
-    <span class="eyebrow">Metodi e strumenti</span>
     <h2 class="shead">Formazioni specialistiche</h2>
     <div class="cards">
       <div class="card">
@@ -256,20 +253,25 @@ section[id]{scroll-margin-top:90px}
 <!-- PERCORSO PROFESSIONALE -->
 <section id="esperienza" class="section section--ink">
   <div class="wrap">
-    <span class="eyebrow">Esperienza</span>
     <h2 class="shead">Percorso professionale</h2>
     <div class="timeline">
       <div class="t-item">
         <span class="dot"></span>
+        <p class="when">Dal 2026 – Oggi</p>
+        <h3>Psicoterapeuta indipendente — Studio di Psicoterapia Primo Passo</h3>
+        <p>Attività clinica di psicoterapia, Lugano.</p>
+      </div>
+      <div class="t-item">
+        <span class="dot"></span>
         <p class="when">Dal 2023</p>
         <h3>Psicoterapeuta — Centro Psicoterapia Integrata Ticino</h3>
-        <p>Attività clinica di psicoterapia.</p>
+        <p>Attività clinica di psicoterapia, Lugano.</p>
       </div>
       <div class="t-item">
         <span class="dot"></span>
         <p class="when">2016 – 2024</p>
         <h3>Libera professionista — studio privato</h3>
-        <p>Attività come psicologa e psicoterapeuta.</p>
+        <p>Attività come psicologa e psicoterapeuta, Italia.</p>
       </div>
       <div class="t-item">
         <span class="dot"></span>
@@ -311,30 +313,6 @@ section[id]{scroll-margin-top:90px}
   </div>
 </section>
 
-<!-- VISIONE E APPROCCIO -->
-<section id="approccio" class="section section--burro">
-  <div class="wrap">
-    <span class="eyebrow">Il mio modo di lavorare</span>
-    <h2 class="shead">Visione e approccio terapeutico</h2>
-    <div class="prose">
-      <p>Accoglienza, empatia e ascolto mi guidano da anni nel mio lavoro con le persone. Mi impegno a fornire un ambiente sicuro e accogliente in cui i miei pazienti possano intraprendere un proprio personale viaggio di scoperta ed essere supportati professionalmente per individuare e risolvere disagi, difficoltà o conflitti.</p>
-      <p>La mia pratica clinica si ispira alla Teoria Sistemica e Socio-Costruzionista e pone l'enfasi sui contesti relazionali significativi nella vita delle persone — la famiglia, l'ambiente lavorativo, le dinamiche affettive e il contesto culturale. Questo approccio consente di offrire trattamenti mirati e profondamente radicati nella realtà quotidiana, tenendo conto non solo dell'individuo ma anche del suo ambiente e delle sue interazioni sociali.</p>
-    </div>
-    <div class="chips">
-      <span class="chip">Bambini</span>
-      <span class="chip">Adolescenti</span>
-      <span class="chip">Giovani adulti</span>
-      <span class="chip">Adulti</span>
-      <span class="chip">Coppie</span>
-      <span class="chip">Famiglie</span>
-    </div>
-    <div class="cta-row">
-      <a href="index.html#contatti" class="btn">Prenota un colloquio →</a>
-      <a href="index.html#chi-sono" class="btn btn--out">Torna al sito</a>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="wrap">
@@ -365,13 +343,13 @@ section[id]{scroll-margin-top:90px}
   // menu mobile
   const toggle = document.querySelector('.nav-toggle');
   const menu = document.getElementById('menu');
-  toggle.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-  });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.remove('open'); toggle.setAttribute('aria-expanded', false);
-  }));
+  const ov = document.createElement('div'); ov.className='nav-overlay'; document.body.appendChild(ov);
+  function closeMenu(){ menu.classList.remove('open'); ov.classList.remove('show'); toggle.setAttribute('aria-expanded', false); }
+  function openMenu(){ menu.classList.add('open'); ov.classList.add('show'); toggle.setAttribute('aria-expanded', true); }
+  toggle.addEventListener('click', () => { menu.classList.contains('open') ? closeMenu() : openMenu(); });
+  ov.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', e => { if(e.key==='Escape' && menu.classList.contains('open')) closeMenu(); });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   // nav a pallini: click, sezione attiva, contrasto su sfondo scuro
   const dots = [...document.querySelectorAll('.dots button')];
   const dotsNav = document.querySelector('.dots');
