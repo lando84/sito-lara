@@ -18,7 +18,7 @@
 <header class="site-header" id="header">
   <nav class="nav wrap" aria-label="Navigazione principale">
     <a href="../index.html" class="brand"><span class="bn">Studio di Psicoterapia Primo Passo</span><br>di Lara Pennetta<span>Psicologa · Psicoterapeuta FSP</span></a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Apri menu"><span class="nav-toggle-txt">Menu</span><span class="ham"><span></span><span></span><span></span></span></button>
     <ul class="nav-links" id="menu">
       <li><a href="../index.html#chi-sono">Chi sono</a></li>
       <li><a href="../index.html#approccio">L'approccio</a></li>
@@ -87,8 +87,10 @@ const header=document.getElementById('header');
 addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40),{passive:true});
 const t=document.querySelector('.nav-toggle'),l=document.getElementById('menu');
 const ov=document.createElement('div');ov.className='nav-overlay';document.body.appendChild(ov);
-function closeMenu(){l.classList.remove('open');ov.classList.remove('show');t.textContent='Menu';t.setAttribute('aria-expanded','false');}
-function openMenu(){l.classList.add('open');ov.classList.add('show');t.textContent='Chiudi';t.setAttribute('aria-expanded','true');}
+const navParent=l.parentNode;
+const tTxt=t.querySelector('.nav-toggle-txt');
+function closeMenu(){l.classList.remove('open');ov.classList.remove('show');t.classList.remove('is-open');t.setAttribute('aria-expanded','false');if(tTxt)tTxt.textContent='Menu';if(l.parentNode!==navParent)navParent.appendChild(l);}
+function openMenu(){document.body.appendChild(l);l.classList.add('open');ov.classList.add('show');t.classList.add('is-open');t.setAttribute('aria-expanded','true');if(tTxt)tTxt.textContent='Chiudi';}
 t.addEventListener('click',()=>{l.classList.contains('open')?closeMenu():openMenu();});
 ov.addEventListener('click',closeMenu);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&l.classList.contains('open'))closeMenu();});
