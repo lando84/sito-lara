@@ -1,4 +1,11 @@
 {
-  "posts": [    
+  "posts": [
+    {
+      "title": "Il primo passo: quando chiedere aiuto diventa un gesto per sé stessi",
+      "category": "Riflessioni",
+      "date": "01-09-2026",
+      "url": "blog/chiedere-aiuto-primo-passo.html",
+      "color": "rosa"
+    }
   ]
 }
