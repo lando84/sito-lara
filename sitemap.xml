@@ -11,17 +11,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.larapennetta.ch/blog/ansia-relazioni.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.larapennetta.ch/blog/storie-che-raccontiamo.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.larapennetta.ch/blog/chiedere-aiuto.html</loc>
+    <loc>https://www.larapennetta.ch/blog/chiedere-aiuto-primo-passo.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
