@@ -648,7 +648,7 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
     const color=p.color||COLORS[i%COLORS.length]||'burro';
     return `<a class="post-card reveal"${i?` data-d="${i%3}"`:''} href="${esc(p.url)}">
       <div class="thumb"><div class="ph c-${esc(color)}"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M3 17l5-4 4 3 3-3 6 5"/></svg><span>Foto</span></div><div class="datebadge"><span class="day">${day}</span><span class="mon">${esc(mon)}</span></div></div>
-      <div class="body"><p class="meta">${esc(p.category)}</p><h3>${esc(p.title)}</h3></div>
+      <div class="body"><p class="meta">${esc(p.category)}${d&&!isNaN(d)?` · ${day} ${esc(mon)} ${d.getFullYear()}`:''}</p><h3>${esc(p.title)}</h3></div>
     </a>`;
   }
 
