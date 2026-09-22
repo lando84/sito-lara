@@ -100,7 +100,7 @@ a{color:inherit;text-decoration:none}
 
 .wrap{max-width:1280px;margin:0 auto;padding-inline:var(--gutter);width:100%}
 .eyebrow{font-family:var(--body);font-size:.8rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:inline-block;border:2px solid var(--inchiostro);padding:.4rem .9rem;border-radius:999px;margin-bottom:1.5rem}
-.lead{font-size:clamp(1.05rem,1.6vw,1.35rem);line-height:1.5;font-weight:500;max-width:56ch}
+.lead{font-size:clamp(1.05rem,1.6vw,1.35rem);line-height:1.55;font-weight:500;max-width:80ch}
 
 /* ---- Header ---- */
 .site-header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .4s,box-shadow .4s,padding .4s;padding-block:1.4rem;border-bottom:2px solid transparent}
@@ -174,8 +174,9 @@ a{color:inherit;text-decoration:none}
 /* ---- Hero ---- */
 #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:7rem;position:relative;overflow:hidden}
 #hero .wrap{position:relative;z-index:2;flex:1;display:flex;align-items:center}
-.hero-title{margin-bottom:1rem;font-size:clamp(2rem,5.4vw,5rem);font-style:italic}
-.hero-cite{font-family:var(--display);font-size:clamp(1rem,1.8vw,1.4rem);font-weight:600;color:var(--corallo-scuro);letter-spacing:.02em;margin-bottom:2rem}
+.hero-title{margin-bottom:1rem;font-size:clamp(1.6rem,5vw,5.4rem);font-style:italic}
+@media(min-width:1281px){.hero-title{margin-right:-8vw}}
+.hero-cite{font-family:var(--display);font-size:clamp(1rem,1.8vw,1.4rem);font-weight:600;color:var(--corallo-scuro);letter-spacing:.02em;margin-bottom:2rem;max-width:none}
 
 .hero-title .l{display:block;overflow:hidden;padding-bottom:.14em}
 .hero-title .l>span{display:block;transform:translateY(105%);transition:transform 1s cubic-bezier(.22,1,.36,1)}
@@ -347,6 +348,15 @@ a{color:inherit;text-decoration:none}
 .cbtn--mail{background:var(--corallo);color:var(--inchiostro);border-color:var(--inchiostro)}
 .cbtn--wa{background:#25D366;color:var(--inchiostro);border-color:var(--inchiostro)}
 .cbtn:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--crema)}
+@media(max-width:880px){
+  .contact-btns{flex-wrap:nowrap;gap:.8rem}
+  .cbtn{flex:1 1 0;min-width:0;justify-content:center;text-align:center}
+}
+@media(max-width:600px){
+  .contact-btns{gap:.6rem}
+  .cbtn{font-size:.78rem;line-height:1.25;padding:.75rem .45rem;gap:.3rem;border-radius:16px}
+  .cbtn svg{width:15px;height:15px;flex:none}
+}
 .footer-big a{color:var(--corallo);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
 .footer-cols{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:2rem}
 @media(max-width:760px){.footer-cols{grid-template-columns:1fr}}
@@ -500,12 +510,11 @@ a{color:inherit;text-decoration:none}
     <div class="wrap">
       <div class="hero-grid">
         <h1 class="hero-title">
-          <span class="l"><span>"Il vero viaggio di scoperta</span></span>
-          <span class="l"><span>non consiste</span></span>
-          <span class="l"><span>nel cercare nuove terre,</span></span>
+          <span class="l"><span style="white-space:nowrap">"Il vero viaggio di scoperta</span></span>
+          <span class="l"><span style="white-space:nowrap">non consiste nel cercare nuove terre,</span></span>
           <span class="l"><span style="white-space:nowrap">ma nell'avere nuovi occhi"</span></span>
         </h1>
-        <p class="hero-cite">— Marcel Proust</p>
+        <p class="hero-cite" style="text-align:right">— Marcel Proust</p>
         <p class="lead">Ogni percorso di cambiamento inizia da un primo passo.<br>Lo studio Primo Passo nasce come uno spazio dedicato all'ascolto, alla cura e alla comprensione di sé e delle proprie relazioni. Un luogo in cui potersi fermare, dare voce a ciò che si sta vivendo e guardare la propria storia da nuove prospettive.<br>A volte il primo passo è semplicemente quello di chiedere aiuto. Da lì, può iniziare un percorso verso un maggiore equilibrio e un modo nuovo di stare con se stessi e con gli altri.</p>
       </div>
     </div>
