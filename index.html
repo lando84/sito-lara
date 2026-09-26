@@ -176,6 +176,11 @@ a{color:inherit;text-decoration:none}
 #hero .wrap{position:relative;z-index:2;flex:1;display:flex;align-items:center}
 .hero-title{margin-bottom:1rem;font-size:clamp(1.6rem,5vw,5.4rem);font-style:italic}
 @media(min-width:1281px){.hero-title{margin-right:-8vw}}
+@media(max-width:760px){
+  .hero-title{font-size:clamp(1.5rem,6.2vw,2.6rem)}
+  .hero-title .l>span{white-space:normal!important}
+  .hero-grid{min-width:0}
+}
 .hero-cite{font-family:var(--display);font-size:clamp(1rem,1.8vw,1.4rem);font-weight:600;color:var(--corallo-scuro);letter-spacing:.02em;margin-bottom:2rem;max-width:none}
 
 .hero-title .l{display:block;overflow:hidden;padding-bottom:.14em}
