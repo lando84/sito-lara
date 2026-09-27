@@ -1,6 +1,14 @@
 {
   "posts": [
     {
+      "title": "Perché devo essere sempre io a cambiare e mai gli altri?",
+      "category": "Relazioni",
+      "date": "27-09-2026",
+      "url": "blog/perche-devo-cambiare-io.html",
+      "color": "salvia",
+      "image": "img/cambiare-io-cover.jpg"
+    },
+    {
       "title": "Il primo passo: quando chiedere aiuto diventa un gesto per sé stessi",
       "category": "Riflessioni",
       "date": "01-09-2026",
